@@ -31,3 +31,6 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+branches:
+  only:
+  - neo4j-integration
