@@ -5,9 +5,7 @@ jdk:
 env:
   matrix:
   - TERM=dumb
-  global:
-    - secure: "YQn9t0lo5f1XosuJ7j7bKVHv91WCqruzpIZed+2AxbZyq0e/9aE0GcOydynio3slWZg/b6X/SRg7M52RKPETyc6ZZ72DPVQ1wIb2LkiQ0cTlaxiKqSLgqsVgmZ4lWFgZz9FvF4dHLRx8WKjpqdiy/mQ07TxicUoSqJf2AtuazQs="
-    - secure: "kYo83ZxCaBdbflliPIboYZW6QR9qBuMK0YrFsrO2DE7MXUZWsJVq1HaRWwv1jIxAojaAggxNay/2xLvkc/JRWnglYXLEqS16yuHFP0mA33Th4w3Wnmy8CDGTVPRaRHZzwtBjGWiMrnBen8BEyVt72qQLXKL8TJV/x4UBVO9cao4="
+  
 install:
   - ./gradlew assemble --stacktrace
 script:
@@ -15,7 +13,7 @@ script:
 after_success:
   - ./gradlew cobertura coveralls
 after_failure:
-  - cat /home/travis/build/stagemonitor/stagemonitor/stagemonitor-*/hs_err_*.log
+  - cat /home/travis/build/feststelltaste/stagemonitor/stagemonitor-*/hs_err_*.log
 
 cache:
   directories:
@@ -25,9 +23,8 @@ cache:
 addons:
   coverity_scan:
     project:
-      name: "stagemonitor/stagemonitor"
+      name: "feststelltaste/stagemonitor"
       description: "Build submitted via Travis CI"
-    notification_email: andreas.liebhaeuser@isys.de
     build_command_prepend: "./gradlew clean"
     build_command: "./gradlew compileJava"
     branch_pattern: coverity
